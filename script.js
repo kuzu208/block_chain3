@@ -201,9 +201,15 @@ async function ensureWriteContract() {
 async function searchLand(maSo) {
     const read = getReadContract();
     const [owner, area, history] = await Promise.all([
-        read.xemChuSoHuu(maSo),
-        read.xemDienTich(maSo),
-        read.xemLichSuChuyenNhuong(maSo)
+     
+        const chuSoHuu = await read.xemChuSoHuu(maSo);
+       console.log("Chủ sở hữu:", chuSoHuu);
+
+      const dienTich = await read.xemDienTich(maSo);
+      console.log("Diện tích:", dienTich.toString());
+
+      const lichSu = await read.xemLichSuChuyenNhuong(maSo);
+      console.log("Lịch sử chuyển nhượng:", lichSu);
     ]);
 
     const historyItems = history.length === 0
