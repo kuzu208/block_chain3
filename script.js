@@ -5,7 +5,7 @@
 
 const CONTRACT_ADDRESS = "0x28428b974E80c7C9267adf914C02bAA76D1E5AB2";
 const SEPOLIA_CHAIN_ID = "0xaa36a7";
-const SEPOLIA_RPC = "https://sepolia.infura.io/v3/1a9553d4833a4542871fc2c240094786";
+const SEPOLIA_RPC = "https://rpc.sepolia.org";
 
 const CONTRACT_ABI = [
     {
