@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ĐẤTCHAIN - Quản lý quyền sử dụng đất</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a class="brand" href="#trangchu">🏡 ĐẤTCHAIN</a>
+        <nav>
+            <a href="#trangchu">Trang chủ</a>
+            <a href="#tracuu">Tra cứu</a>
+            <a href="#dangky">Đăng ký đất</a>
+            <a href="#chuyennhuong">Chuyển nhượng</a>
+        </nav>
+        <div class="wallet-area">
+            <span class="network" id="networkStatus">Chưa kết nối ví</span>
+            <button type="button" id="connectWallet" class="connect-button">Kết nối MetaMask</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="trangchu">
+            <p class="eyebrow">ỨNG DỤNG BLOCKCHAIN</p>
+            <h1>Quản lý quyền sử dụng đất<br>minh bạch và an toàn</h1>
+            <p>Tra cứu thông tin thửa đất và theo dõi lịch sử chuyển nhượng.</p>
+            <a class="hero-button" href="#tracuu">Bắt đầu tra cứu</a>
+        </section>
+
+        <section class="container">
+            <div class="stats">
+                <div class="stat">
+                    <span>Trạng thái kết nối</span>
+                    <strong id="totalLand">Chưa kết nối</strong>
+                </div>
+                <div class="stat">
+                    <span>Giao dịch thành công trong phiên</span>
+                    <strong id="totalTransfer">0</strong>
+                </div>
+                <div class="stat">
+                    <span>Mạng yêu cầu</span>
+                    <strong>Sepolia</strong>
+                </div>
+            </div>
+
+            <section class="panel" id="tracuu">
+                <h2>🔎 Tra cứu thửa đất</h2>
+                <p>Nhập mã số thửa đất để xem thông tin trên blockchain.</p>
+                <form id="searchForm" class="inline-form">
+                    <input id="searchId" type="number" min="1" step="1" placeholder="Ví dụ: 202610" required>
+                    <button type="submit">Tìm kiếm</button>
+                </form>
+                <div id="landInfo" class="result" aria-live="polite">
+                    Nhập mã thửa đất để bắt đầu tra cứu.
+                </div>
+            </section>
+
+            <div class="two-columns">
+                <section class="panel" id="dangky">
+                    <h2>＋ Đăng ký thửa đất</h2>
+                    <p>Ví đang kết nối sẽ trả phí gas cho giao dịch.</p>
+                    <form id="registerForm">
+                        <label for="landId">Mã số thửa đất</label>
+                        <input id="landId" type="number" min="1" step="1" placeholder="Ví dụ: 202610" required>
+
+                        <label for="area">Diện tích (m²)</label>
+                        <input id="area" type="number" min="1" step="1" placeholder="150" required>
+
+                        <label for="firstOwner">Địa chỉ ví chủ đầu tiên</label>
+                        <input id="firstOwner" type="text" placeholder="0x..." autocomplete="off" required>
+
+                        <button type="submit" class="full-button">Đăng ký thửa đất</button>
+                    </form>
+                </section>
+
+                <section class="panel" id="chuyennhuong">
+                    <h2>⇄ Chuyển nhượng</h2>
+                    <p>Chỉ ví MetaMask đang kết nối và là chủ hiện tại mới được chuyển nhượng.</p>
+                    <form id="transferForm">
+                        <label for="transferId">Mã số thửa đất</label>
+                        <input id="transferId" type="number" min="1" step="1" placeholder="Ví dụ: 202610" required>
+
+                        <label for="newOwner">Ví chủ sở hữu mới</label>
+                        <input id="newOwner" type="text" placeholder="0x..." autocomplete="off" required>
+
+                        <button type="submit" class="full-button">Thực hiện chuyển nhượng</button>
+                    </form>
+                </section>
+            </div>
+
+            <div id="appMessage" class="app-message" role="status" aria-live="polite"></div>
+            <p class="notice">⚠️ Đây là ứng dụng học tập sử dụng smart contract trên Sepolia Testnet. Dữ liệu demo không thay thế hồ sơ pháp lý đất đai.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>ĐẤTCHAIN — Đồ án ứng dụng Blockchain | Phiên bản học tập</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
